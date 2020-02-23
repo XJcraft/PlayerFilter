@@ -1,0 +1,4 @@
+name: PlayerFilter
+version: ${project.version}
+main: org.xjcraft.playerfilter.PlayerFilter
+api-version: 1.13
