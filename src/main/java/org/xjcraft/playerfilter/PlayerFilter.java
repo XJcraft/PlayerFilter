@@ -6,6 +6,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.regex.Pattern;
+
 public final class PlayerFilter extends JavaPlugin implements Listener {
 
     @Override
@@ -23,10 +25,14 @@ public final class PlayerFilter extends JavaPlugin implements Listener {
     @EventHandler
     public void login(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        if (player.getName().startsWith("$")
-                || player.getName().length() < 3
-                || player.getName().contains(" ")) {
+        boolean matches = Pattern.matches("[a-zA-z0-9_]{3,16}", player.getName());
+        if (!matches){
             player.kickPlayer("不允许的玩家名！");
         }
+//        if (player.getName().startsWith("$")
+//                || player.getName().length() < 3
+//                || player.getName().contains(" ")) {
+//
+//        }
     }
 }
