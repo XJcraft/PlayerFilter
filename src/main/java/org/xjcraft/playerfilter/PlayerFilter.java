@@ -23,7 +23,9 @@ public final class PlayerFilter extends JavaPlugin implements Listener {
     @EventHandler
     public void login(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        if (player.getName().startsWith("$") || player.getName().length() < 3) {
+        if (player.getName().startsWith("$")
+                || player.getName().length() < 3
+                || player.getName().contains(" ")) {
             player.kickPlayer("不允许的玩家名！");
         }
     }
