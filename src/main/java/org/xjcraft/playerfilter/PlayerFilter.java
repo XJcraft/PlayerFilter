@@ -6,16 +6,17 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.xjcraft.CommonPlugin;
 import org.xjcraft.playerfilter.config.Config;
 
 import java.util.regex.Pattern;
 
-public final class PlayerFilter extends JavaPlugin implements Listener {
+public final class PlayerFilter extends CommonPlugin implements Listener {
 
     @Override
     public void onEnable() {
         // Plugin startup logic
+        loadConfigs();
         getServer().getPluginManager().registerEvents(this, this);
 
     }
